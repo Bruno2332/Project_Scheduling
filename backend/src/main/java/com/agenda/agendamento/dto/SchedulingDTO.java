@@ -1,5 +1,7 @@
 package com.agenda.agendamento.dto;
 
+import com.agenda.agendamento.entities.Patient;
+import com.agenda.agendamento.entities.Professional;
 import com.agenda.agendamento.entities.Scheduling;
 
 import java.time.Instant;
@@ -8,8 +10,9 @@ public class SchedulingDTO {
 
     private Long id;
     private Instant momentScheduling;
-    private Long patientId;
-    private Long professionalId;
+    private PatientDTO patient;
+    private ProfessionalDTO professional;
+
 
     public SchedulingDTO(){
     }
@@ -17,8 +20,8 @@ public class SchedulingDTO {
     public SchedulingDTO(Scheduling entity){
         id = entity.getId();
         momentScheduling = entity.getMomentScheduling();
-        patientId = entity.getPatient().getId();
-        professionalId = entity.getProfessional().getId();
+        patient = new PatientDTO(entity.getPatient());
+        professional = new ProfessionalDTO(entity.getProfessional());
     }
 
     public Long getId() {
@@ -29,11 +32,11 @@ public class SchedulingDTO {
         return momentScheduling;
     }
 
-    public Long getPatientId() {
-        return patientId;
+    public PatientDTO getPatient() {
+        return patient;
     }
 
-    public Long getProfessionalId() {
-        return professionalId;
+    public ProfessionalDTO getProfessional() {
+        return professional;
     }
 }

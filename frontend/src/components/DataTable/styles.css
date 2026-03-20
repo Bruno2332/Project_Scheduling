@@ -1,0 +1,47 @@
+
+.table-container-icons {
+    display: flex;
+    width: 50px;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-right: 10px;
+
+}
+
+.table-icon {
+    width: 20px;
+    cursor: pointer;
+}
+
+.psi-empty-result{
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto;
+    display: flex;
+}
+
+.psi-empty-result h2{
+    margin: 0 auto;
+    color: var(--psi-color-font-fifth);
+
+}
+
+.psi-new-btn {
+    width: 100%;
+    padding-bottom: 30px;
+    margin: 0 auto;
+    max-width: 750px;
+}
+
+
+
+@media(min-width: 576px) {
+    .table-container-icons {
+        margin: 0 auto;
+        width: 90px;
+    }
+
+    .table-icon {
+        width: 25px;
+    }
+}

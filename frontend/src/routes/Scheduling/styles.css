@@ -1,0 +1,32 @@
+#scheduling-section {
+    padding-top: 40px;
+}
+
+.scheduling-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.listing-icon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+      
+}
+
+.listing-icon {
+    width: 25px;
+    cursor: pointer;   
+}
+
+.search-bar-container {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30px;
+  max-width: 750px;
+  margin: 0 auto; 
+}

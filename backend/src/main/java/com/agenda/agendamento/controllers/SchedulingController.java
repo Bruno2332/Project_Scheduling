@@ -2,6 +2,7 @@ package com.agenda.agendamento.controllers;
 
 import com.agenda.agendamento.dto.PatientDTO;
 import com.agenda.agendamento.dto.SchedulingDTO;
+import com.agenda.agendamento.dto.SchedulingInsertDTO;
 import com.agenda.agendamento.services.PatientService;
 import com.agenda.agendamento.services.SchedulingService;
 import jakarta.validation.Valid;
@@ -38,7 +39,7 @@ public class SchedulingController {
     }
 
     @PostMapping
-    public ResponseEntity<SchedulingDTO> insert(@Valid @RequestBody SchedulingDTO dto){
+    public ResponseEntity<SchedulingInsertDTO> insert(@Valid @RequestBody SchedulingInsertDTO dto){
         dto = service.insert(dto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(dto.getId()).toUri();
@@ -46,7 +47,7 @@ public class SchedulingController {
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<SchedulingDTO> update(@PathVariable Long id, @Valid @RequestBody SchedulingDTO dto){
+    public ResponseEntity<SchedulingInsertDTO> update(@PathVariable Long id, @Valid @RequestBody SchedulingInsertDTO dto){
         dto = service.update(id, dto);
         return ResponseEntity.ok(dto);
     }

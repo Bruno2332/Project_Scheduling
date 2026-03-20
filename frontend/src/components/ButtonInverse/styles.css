@@ -1,0 +1,10 @@
+
+.psi-inverse-btn {
+    background-color: var(--psi-color-bg-search-bar);
+    color: var(--psi-color-button-submit);
+    border: 2px solid var(--psi-color-button-submit);
+}
+
+
+
+

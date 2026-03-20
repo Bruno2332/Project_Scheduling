@@ -1,6 +1,7 @@
 package com.agenda.agendamento.services;
 
 import com.agenda.agendamento.dto.SchedulingDTO;
+import com.agenda.agendamento.dto.SchedulingInsertDTO;
 import com.agenda.agendamento.entities.Professional;
 import com.agenda.agendamento.entities.Scheduling;
 import com.agenda.agendamento.repositories.PatientRepository;
@@ -47,24 +48,24 @@ public class SchedulingService {
     }
 
     @Transactional
-    public SchedulingDTO insert(SchedulingDTO dto) {
+    public SchedulingInsertDTO insert(SchedulingInsertDTO dto) {
         Scheduling entity = new Scheduling();
         Professional professional = professionalRepository.getReferenceById(dto.getProfessionalId());
         conflictScheduling(professional.getId(), dto);
         copyDtoToEntity(dto, entity);
         entity = repository.save(entity);
-        return new SchedulingDTO(entity);
+        return new SchedulingInsertDTO(entity);
     }
 
     @Transactional
-    public SchedulingDTO update(Long id, SchedulingDTO dto) {
+    public SchedulingInsertDTO update(Long id, SchedulingInsertDTO dto) {
         try {
             Scheduling entity = repository.getReferenceById(id);
             Professional professional = professionalRepository.getReferenceById(dto.getProfessionalId());
             conflictScheduling(professional.getId(), dto);
             copyDtoToEntity(dto, entity);
             entity = repository.save(entity);
-            return new SchedulingDTO(entity);
+            return new SchedulingInsertDTO(entity);
         }
         catch(EntityNotFoundException e) {
             throw new ResourceNotFoundException("Recurso não encontrado");
@@ -84,17 +85,18 @@ public class SchedulingService {
         }
     }
 
-    private void copyDtoToEntity(SchedulingDTO dto, Scheduling entity) {
+    private void copyDtoToEntity(SchedulingInsertDTO dto, Scheduling entity) {
         entity.setMomentScheduling(dto.getMomentScheduling());
         entity.setPatient(patientRepository.getReferenceById(dto.getPatientId()));
         entity.setProfessional(professionalRepository.getReferenceById(dto.getProfessionalId()));
     }
 
-    private void conflictScheduling(Long id, SchedulingDTO dto){
+    private void conflictScheduling(Long id, SchedulingInsertDTO dto){
         Professional entity = professionalRepository.getReferenceById(id);
         for (Scheduling sch : entity.getSchedulings()){
-            if (sch.getMomentScheduling().equals(dto.getMomentScheduling())){
-                throw new ConflictException("Este horário não está disponível");
+            long diff = Math.abs(java.time.Duration.between(sch.getMomentScheduling(), dto.getMomentScheduling()).toMinutes());
+            if (diff < 30) {
+                throw new ConflictException("Este horário não está disponível (intervalo mínimo de 30min)");
             }
         }
     }

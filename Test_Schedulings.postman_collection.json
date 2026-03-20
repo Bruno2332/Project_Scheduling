@@ -1,0 +1,316 @@
+{
+  "info": {
+    "_postman_id": "0866d84a-3864-4a3a-b2c2-701876ddad96",
+    "name": "Test_Schedulings",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "28244149"
+  },
+  "item": [
+    {
+      "name": "Professionals",
+      "item": [
+        {
+          "name": "Find All",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{host}}professionals",
+              "host": [
+                "{{host}}professionals"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Find by Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{host}}professionals/1",
+              "host": [
+                "{{host}}professionals"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Prof",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"João Batista\",\r\n    \"speciality\": \"Nutricionista\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}professionals",
+              "host": [
+                "{{host}}professionals"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Prof",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"João Batista\",\r\n    \"speciality\": \"Psicologo\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}professionals/6",
+              "host": [
+                "{{host}}professionals"
+              ],
+              "path": [
+                "6"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{host}}professionals/6",
+              "host": [
+                "{{host}}professionals"
+              ],
+              "path": [
+                "6"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Patients",
+      "item": [
+        {
+          "name": "Find All",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{host}}patients",
+              "host": [
+                "{{host}}patients"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Find by Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{host}}patients/1",
+              "host": [
+                "{{host}}patients"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Patient",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"João Batista\"\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}patients",
+              "host": [
+                "{{host}}patients"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Patient",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"João Batista\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}patients/6",
+              "host": [
+                "{{host}}patients"
+              ],
+              "path": [
+                "6"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{host}}patients/6",
+              "host": [
+                "{{host}}patients"
+              ],
+              "path": [
+                "6"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Schedulings",
+      "item": [
+        {
+          "name": "Find All",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{host}}schedulings",
+              "host": [
+                "{{host}}schedulings"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Find by Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{host}}schedulings/1",
+              "host": [
+                "{{host}}schedulings"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Scheduling",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"momentScheduling\": \"2024-05-20T08:00:00Z\",\r\n    \"patientId\": 10,\r\n    \"professionalId\": 4\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}schedulings",
+              "host": [
+                "{{host}}schedulings"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Schedulings",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"momentScheduling\": \"2024-05-20T08:00:00Z\",\r\n    \"patientId\": 11,\r\n    \"professionalId\": 10\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}schedulings/6",
+              "host": [
+                "{{host}}schedulings"
+              ],
+              "path": [
+                "6"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{host}}patients/6",
+              "host": [
+                "{{host}}patients"
+              ],
+              "path": [
+                "6"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
